@@ -14,7 +14,7 @@ class CardDeliveryTest {
     @Test
     void shouldTestAllFieldsCorrectly() {
         open("http://localhost:9999");
-        Integer Day = 4;
+        Integer Day = 3;
         String date = LocalDate.now().plusDays(Day).format(DateTimeFormatter.ofPattern("dd.MM.uuuu"));
         $("[data-test-id=city] input").setValue("Пермь");
         $("[data-test-id=date] input").sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
@@ -24,6 +24,6 @@ class CardDeliveryTest {
         $("[data-test-id=agreement]").click();
         $(".button").click();
 
-        $(withText("Успешно!")).waitUntil(visible, 10000);
+        $(withText("Успешно!")).waitUntil(visible, 15000);
     }
 }
